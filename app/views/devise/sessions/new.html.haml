@@ -16,6 +16,8 @@
 
     - elsif ldap_enabled?
       = render partial: 'devise/sessions/new_ldap'
+    - elsif shibboleth_enabled?
+      = render partial: 'devise/sessions/new_shibboleth'
     - elsif gitlab_config.signin_enabled
       = render partial: 'devise/sessions/new_base'
     - else

@@ -3,6 +3,10 @@ module OauthHelper
     Devise.omniauth_providers.include?(:ldap)
   end
 
+  def shibboleth_enabled?
+    Devise.omniauth_providers.include?(:shibboleth)
+  end
+
   def default_providers
     [:twitter, :github, :google_oauth2, :ldap]
   end
