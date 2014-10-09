@@ -18,13 +18,15 @@
     }
 
   %body
-    %div.content
-      = yield
-    %div.footer{style: "margin-top: 10px;"}
-      %p
-        \—
-        %br
-        - if @project
-          You're receiving this notification because you are a member of the #{link_to_unless @target_url, @project.name_with_namespace, project_url(@project)} project team.
-        - if @target_url
-          #{link_to "View it on GitLab", @target_url}
+    #gitlabApp
+      %div.content
+        = yield
+      %div.footer{style: "margin-top: 10px;"}
+        %p
+          \—
+          %br
+          - if @project
+            You're receiving this notification because you are a member of the #{link_to_unless @target_url, @project.name_with_namespace, project_url(@project)} project team.
+          - if @target_url
+            #{link_to "View it on GitLab", @target_url}
+    = render "layouts/intranet_bar"
