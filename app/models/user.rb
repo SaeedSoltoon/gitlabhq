@@ -398,6 +398,10 @@ class User < ActiveRecord::Base
     extern_uid && provider == 'ldap'
   end
 
+  def shibboleth_user?
+    extern_uid && provider == 'shibboleth'
+  end
+
   def accessible_deploy_keys
     DeployKey.in_projects(self.authorized_projects.pluck(:id)).uniq
   end
