@@ -2,8 +2,10 @@
 %html{ lang: "en"}
   = render "layouts/head", title: "Error"
   %body{class: "#{app_theme} application"}
-    = render "layouts/head_panel", title: "" if current_user
-    = render "layouts/flash"
-    .container.navless-container
-      .error-page
-        = yield
+    #gitlabApp
+      = render "layouts/head_panel", title: "" if current_user
+      = render "layouts/flash"
+      .container.navless-container
+        .error-page
+          = yield
+    = render "layouts/intranet_bar"
