@@ -200,6 +200,16 @@ Settings.gravatar['ssl_url']    ||= 'https://secure.gravatar.com/avatar/%{hash}?
 Settings.gravatar['host']         = Settings.get_host_without_www(Settings.gravatar['plain_url'])
 
 #
+# Custom Avatar
+#
+Settings['custom_avatar'] ||= Settingslogic.new({})
+Settings.custom_avatar['enabled']      = false if Settings.custom_avatar['enabled'].nil?
+Settings.custom_avatar['user_field'] ||= 'username'
+Settings.custom_avatar['plain_url']  ||= 'http://example.com/avatar/%{user}/%{size}'
+Settings.custom_avatar['ssl_url']    ||= 'https://example.com/avatar/%{user}/%{size}'
+Settings.custom_avatar['host']         = Settings.get_host_without_www(Settings.custom_avatar['plain_url'])
+
+#
 # GitLab Shell
 #
 Settings['gitlab_shell'] ||= Settingslogic.new({})
