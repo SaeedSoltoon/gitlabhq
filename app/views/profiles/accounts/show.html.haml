@@ -57,7 +57,6 @@
           %div
             = link_to 'Enable Two-factor Authentication', new_profile_two_factor_auth_path, class: 'btn btn-success'
 
-  - if button_based_providers.any?
     .panel.panel-default
       .panel-heading
         Connected Accounts
@@ -72,7 +71,6 @@
                 = link_to unlink_profile_account_path(provider: provider), method: :delete, class: 'btn btn-lg' do
                   = icon('close')
 
-  - if current_user.can_change_username?
     .panel.panel-warning.update-username
       .panel-heading
         Change Username
@@ -92,7 +90,6 @@
           %div
             = f.submit 'Save username', class: "btn btn-warning"
 
-  - if signup_enabled?
     .panel.panel-danger.remove-account
       .panel-heading
         Remove account
