@@ -8,7 +8,7 @@ class GravatarService
         hash: Digest::MD5.hexdigest(email.strip.downcase),
         size: size,
         email: email.strip
-    elif current_application_setttings.custom_avatar_enabled? && email.present?
+    elsif custom_avatar_config.enabled && email.present?
       email.strip.downcase!
 
       if @user = User.find_by_email(email)
