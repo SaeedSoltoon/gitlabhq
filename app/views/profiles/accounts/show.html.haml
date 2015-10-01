@@ -2,9 +2,9 @@
 - header_title page_title, profile_account_path
 - @blank_container = true
 
-- if current_user.ldap_user?
+- if show_profile_password_tab?
   .alert.alert-info
-    Some options are unavailable for LDAP accounts
+    Some options are unavailable
 
 .account-page
   .panel.panel-default.update-token
@@ -29,7 +29,7 @@
               %span You don`t have one yet. Click generate to fix it.
               = f.submit 'Generate', class: "btn btn-default btn-build-token"
 
-  - unless current_user.ldap_user?
+  - unless show_profile_password_tab?
     .panel.panel-default
       .panel-heading
         Two-factor Authentication

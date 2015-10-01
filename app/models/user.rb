@@ -520,6 +520,10 @@ class User < ActiveRecord::Base
     identities.exists?(["provider LIKE ? AND extern_uid IS NOT NULL", "ldap%"])
   end
 
+  def shibboleth_user?
+    identities.exists?(["provider LIKE ? AND extern_uid IS NOT NULL", "shibboleth%"])
+  end
+
   def ldap_identity
     @ldap_identity ||= identities.find_by(["provider LIKE ?", "ldap%"])
   end
