@@ -314,4 +314,8 @@ module ApplicationHelper
 
     html.html_safe
   end
+
+  def intra_base_url
+    Gitlab.config.intra_base_url
+  end
 end

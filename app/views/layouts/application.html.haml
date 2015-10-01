@@ -2,14 +2,17 @@
 %html{ lang: "en"}
   = render "layouts/head"
   %body{class: "#{user_application_theme}", 'data-page' => body_data_page}
-    -# Ideally this would be inside the head, but turbolinks only evaluates page-specific JS in the body.
-    = yield :scripts_body_top
+    %nav{id: "sapoIntrabarContainer", "data-bind": "module: {name: 'IntraBar', data: {intraBaseDomain: '#{intra_base_url}', mainContentId: 'gitlabApp'}}"}
+    #gitlabApp
+      -# Ideally this would be inside the head, but turbolinks only evaluates page-specific JS in the body.
+      = yield :scripts_body_top
 
-    - if current_user
-      = render "layouts/header/default", title: header_title
-    - else
-      = render "layouts/header/public", title: header_title
+      - if current_user
+        = render "layouts/header/default", title: header_title
+      - else
+        = render "layouts/header/public", title: header_title
 
-    = render 'layouts/page', sidebar: sidebar
+      = render 'layouts/page', sidebar: sidebar
 
-    = yield :scripts_body
+      = yield :scripts_body
+      = render "layouts/intranet_bar_js"
