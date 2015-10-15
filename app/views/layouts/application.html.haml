@@ -3,7 +3,7 @@
   = render "layouts/head"
   %body{class: "#{user_application_theme}", 'data-page' => body_data_page}
     %nav{id: "sapoIntrabarContainer", "data-bind": "module: {name: 'IntraBar', data: {intraBaseDomain: '#{intra_base_url}', mainContentId: 'gitlabApp'}}"}
-    #gitlabApp
+    #gitlabApp{ style: "margin-top: 3.29em;" }
       -# Ideally this would be inside the head, but turbolinks only evaluates page-specific JS in the body.
       = yield :scripts_body_top
 
