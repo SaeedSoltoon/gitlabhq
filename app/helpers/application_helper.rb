@@ -324,4 +324,8 @@ module ApplicationHelper
   def page_class
     "issue-boards-page" if current_controller?(:boards)
   end
+
+  def intra_base_url
+    Gitlab.config.intra_base_url
+  end
 end
